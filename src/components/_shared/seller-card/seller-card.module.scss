@@ -1,0 +1,89 @@
+@import '../../../styles/theme';
+
+.sellerCard {
+  --padding: 24px;
+
+  display: grid;
+
+  gap: var(--padding);
+  justify-items: center;
+
+  padding: var(--padding);
+
+  border-radius: 4px;
+
+  text-align: centers;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  @media (max-width: $mobile-md) {
+    --padding: 12px;
+  }
+}
+.sellerCard__top {
+  display: grid;
+
+  gap: var(--padding);
+  align-items: center;
+  justify-items: center;
+
+  width: 100%;
+
+  @media (max-width: $mobile-md) {
+    gap: var(--padding);
+    grid-template-columns: max-content auto;
+    justify-items: left;
+  }
+}
+
+.sellerCard__avatar {
+  position: relative;
+  overflow: hidden;
+
+  width: 96px;
+  height: 96px;
+
+  border-radius: 50%;
+
+  > * {
+    cursor: pointer;
+  }
+
+  @media (max-width: $mobile-md) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.sellerCard__titles {
+  display: grid;
+
+  gap: 8px;
+  justify-items: center;
+
+  @media (max-width: $mobile-md) {
+    gap: 0;
+    justify-items: left;
+
+    text-align: left;
+  }
+}
+
+.sellerCard__infoList {
+  display: grid;
+
+  gap: 8px;
+  justify-items: center;
+
+  width: 100%;
+}
+
+.sellerCard__infoItem {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: max-content auto;
+
+  width: 100%;
+}

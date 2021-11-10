@@ -1,0 +1,43 @@
+.cityChooser__main {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+
+  padding: 32px;
+
+  min-height: calc(100vh - 72px);
+}
+
+.cityChooser__bg {
+  display: block;
+  position: absolute;
+  z-index: 1;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cityChooser__paper {
+  display: grid;
+  position: relative;
+  z-index: 2;
+
+  gap: 24px;
+
+  margin: auto;
+  padding: 32px;
+
+  width: 100%;
+  max-width: 392px;
+
+  border-radius: 4px;
+
+  text-align: center;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+}

@@ -1,0 +1,128 @@
+@import '../../../styles/theme';
+
+.header {
+  display: grid;
+  position: sticky;
+  z-index: 21;
+
+  top: 0;
+
+  gap: 24px;
+  grid-auto-flow: column;
+  grid-template-columns: max-content max-content auto max-content;
+
+  padding: 4px 64px;
+
+  place-items: center;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  > * {
+    height: 56px;
+  }
+
+  @media (max-width: $mobile-sm) {
+    gap: 16px;
+    grid-template-columns: max-content auto max-content max-content;
+
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+.header__logo {
+  display: inline-block;
+
+  margin: -4px 0;
+  padding: 0 !important;
+
+  height: 64px;
+  min-width: 52.04px !important;
+
+  border-radius: 0 !important;
+
+  cursor: pointer;
+
+  > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+.header__location {
+  margin: 0 0 0 -12px !important;
+  padding: 0 16px 0 12px !important;
+
+  > * {
+    text-transform: none;
+  }
+
+  @media (max-width: $mobile-sm) {
+    padding-right: 0px !important;
+  }
+}
+.header__locationText {
+  @media (max-width: $mobile-sm) {
+    display: none !important;
+  }
+}
+
+.header__nav {
+  display: grid;
+
+  gap: inherit;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, max-content);
+}
+
+.header__navButtonsDefault {
+  margin: 0 -12px !important;
+  padding: 0 12px !important;
+
+  min-width: 0 !important;
+}
+
+.header__avatar {
+  display: inline-block;
+  overflow: hidden;
+
+  margin: -4px 0;
+  padding: 0 !important;
+
+  height: 56px;
+  min-width: 56px !important;
+
+  border-radius: 28px !important;
+
+  cursor: pointer;
+
+  > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+.header__menu {
+  display: grid;
+  position: absolute;
+  z-index: 31;
+
+  right: 64px;
+
+  gap: 24px;
+
+  padding: 32px;
+
+  width: 220px;
+  max-width: calc(100% - 32px);
+
+  border-radius: 4px;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-large);
+
+  @media (max-width: $mobile-sm) {
+    right: 16px;
+  }
+}

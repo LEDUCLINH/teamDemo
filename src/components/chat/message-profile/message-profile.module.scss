@@ -1,0 +1,54 @@
+.message-profile-container {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+
+  padding: 0 32px;
+
+  .basic-info-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    line-height: 23px;
+    letter-spacing: 0em;
+    text-align: left;
+    .profile-pic {
+      border-radius: 50%;
+    }
+
+    .full-name {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .status {
+      font-family: 'Roboto';
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .request-info {
+    margin-top: 48px;
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: #787878;
+    }
+  }
+}

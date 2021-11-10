@@ -1,0 +1,143 @@
+query GetRoomsList($user_id: bigint) {
+  rooms(where: { user_rooms: { user_id: { _eq: $user_id } } }) {
+    id
+    user_rooms(where: { user_id: { _neq: $user_id } }) {
+      user {
+        email
+        full_name
+        avatar {
+          url
+        }
+        id
+      }
+      room {
+        id
+        messages(limit: 1, order_by: { created_at: desc }) {
+          created_at
+          content
+        }
+      }
+    }
+  }
+}
+
+query GetRoomForUser($my_id: bigint, $user_id: bigint) {
+  rooms(
+    where: {
+      _and: {
+        user_rooms: { user_id: { _eq: $my_id } }
+        _and: { user_rooms: { user_id: { _eq: $user_id } } }
+      }
+    }
+  ) {
+    id
+    user_rooms(where: { user_id: { _neq: $my_id } }) {
+      user {
+        email
+        full_name
+        avatar {
+          url
+        }
+      }
+      room {
+        id
+        messages(limit: 1, order_by: { created_at: desc }) {
+          created_at
+          content
+        }
+      }
+    }
+  }
+}
+
+query getUser($user_id: bigint!) {
+  users_by_pk(id: $user_id) {
+    avatar {
+      url
+    }
+    full_name
+  }
+}
+
+subscription GetMessagesForRoom($room_id: bigint) {
+  messages(
+    where: { room_id: { _eq: $room_id } }
+    order_by: { created_at: desc }
+  ) {
+    id
+    content
+    user {
+      id
+    }
+    is_file
+    file {
+      name
+      url
+      type
+    }
+    created_at
+  }
+}
+mutation SendMessage(
+  $room_id: bigint
+  $user_id: bigint
+  $file_id: bigint
+  $content: String
+  $is_file: Boolean = false
+) {
+  insert_messages(
+    objects: {
+      user_id: $user_id
+      content: $content
+      room_id: $room_id
+      file_id: $file_id
+      is_file: $is_file
+    }
+  ) {
+    returning {
+      id
+      content
+      is_file
+      file {
+        name
+        url
+      }
+      user {
+        id
+      }
+      created_at
+    }
+  }
+}
+
+mutation CreateRoomForUser($my_id: bigint, $user_id: bigint) {
+  insert_rooms(
+    objects: {
+      user_rooms: {
+        data: [{ user_id: $my_id }, { user_id: $user_id }]
+        on_conflict: { constraint: user_rooms_pkey }
+      }
+    }
+    on_conflict: { constraint: rooms_pkey }
+  ) {
+    returning {
+      id
+      user_rooms(where: { user_id: { _neq: $my_id } }) {
+        user {
+          email
+          full_name
+          avatar {
+            url
+          }
+        }
+        room {
+          id
+          messages(limit: 1, order_by: { created_at: desc }) {
+            created_at
+            content
+          }
+        }
+      }
+    }
+  }
+}

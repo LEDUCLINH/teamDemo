@@ -1,0 +1,36 @@
+.sidebar-container {
+  background: #fff;
+  height: calc(100vh - 62px - 72px);
+  overflow-y: auto;
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  scrollbar-width: auto;
+  scrollbar-color: #545276 #e4ebf5;
+
+  /* Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e4ebf5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #545276;
+    border-radius: 15px;
+    border: 3px solid #545276;
+  }
+
+  .chat-profile-separator {
+    margin: 0 14px;
+    border: 0;
+    height: 1px;
+    background: #b1c2d9;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}

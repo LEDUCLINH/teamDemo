@@ -1,0 +1,14 @@
+mutation SettingsSellerProfile__UpdateProfile(
+  $user_id: bigint!
+  $_set: users_set_input!
+) {
+  update_users_by_pk(_set: $_set, pk_columns: { id: $user_id }) {
+    id
+  }
+}
+
+mutation SettingsSellerProfile__GetStripeCustomerPortalLink($path: String) {
+  get_stripe_customer_portal_link(path: $path) {
+    link
+  }
+}

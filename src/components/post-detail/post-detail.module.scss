@@ -1,0 +1,144 @@
+@import '../../styles/theme';
+
+.postDetail {
+  --padding: 64px;
+
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  grid-template-columns: var(--side-width) auto;
+  align-items: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding) var(--padding);
+
+  max-width: var(--max-width);
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+
+    gap: var(--padding);
+
+    padding: var(--padding);
+  }
+}
+
+.postDetail__content {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  align-items: flex-start;
+
+  max-width: 648px;
+
+  @media (max-width: $mobile-sm) {
+    gap: var(--padding);
+  }
+}
+
+.postDetail__post,
+.postDetail__postPrices {
+  --padding: 24px;
+
+  display: grid;
+
+  gap: 16px;
+
+  padding: var(--padding);
+
+  border-radius: 4px;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  @media (max-width: $mobile-md) {
+    --padding: 16px;
+
+    grid-template-columns: 1fr;
+  }
+}
+
+.postDetail__postCategory {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  color: var(--color-grey);
+
+  > * {
+    margin: 0 8px auto 0 !important;
+  }
+}
+
+.postDetail__postCategoryChevronIconContainer {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  width: 24px;
+  max-width: 24px;
+  min-width: 24px;
+  height: 24px;
+  max-height: 24px;
+  min-height: 24px;
+
+  > * {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.postDetail__postTitles {
+  display: grid;
+
+  gap: 8px;
+}
+
+.postDetail__postTitleAndActionRow {
+  display: grid;
+
+  gap: 16px;
+  grid-auto-flow: column;
+  grid-template-columns: auto max-content max-content;
+  align-items: flex-start;
+}
+
+.postDetail__postAttributes {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: flex-start;
+}
+
+.postDetail__postAttachment {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: repeat(2, max-content) auto;
+  align-items: center;
+
+  margin: 0 auto 0 0;
+}
+
+.postDetail__postPrice {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: repeat(2, max-content) auto;
+  align-items: flex-start;
+
+  margin: 0 auto 0 0;
+}
+
+.postDetail__postPriceInfo {
+  display: grid;
+
+  gap: 8px;
+}

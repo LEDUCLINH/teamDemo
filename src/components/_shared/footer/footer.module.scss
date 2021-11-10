@@ -1,0 +1,48 @@
+.footer {
+  display: grid;
+
+  gap: 32px;
+
+  padding: 32px;
+
+  border-top: 1px solid var(--color-background-default);
+
+  background-color: var(--color-background-paper);
+}
+
+.footer__logo {
+  margin: 0 auto;
+
+  > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+.footer__bigLinks {
+  margin: -8px -12px;
+
+  text-align: center;
+
+  > * {
+    display: inline-block;
+
+    margin: 8px 12px !important;
+  }
+}
+
+.footer__smallLinks {
+  margin: -8px -8px;
+
+  text-align: center;
+
+  > * {
+    display: inline-block;
+
+    margin: 8px 8px !important;
+  }
+}
+
+.footer__copyright {
+  margin: 0 auto;
+}

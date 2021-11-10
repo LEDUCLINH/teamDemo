@@ -1,0 +1,20 @@
+mutation PostCard__deletePost($post_id: bigint!) {
+  delete_post_prices(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+
+  delete_post_attachments(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+  delete_files(where: { post_attachments: { post_id: { _eq: $post_id } } }) {
+    affected_rows
+  }
+
+  delete_post_attributes(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+
+  delete_posts_by_pk(id: $post_id) {
+    id
+  }
+}

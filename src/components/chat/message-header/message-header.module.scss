@@ -1,0 +1,58 @@
+.header {
+  background-color: #545276;
+  color: #fff;
+  height: 62px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 4px;
+  }
+}
+
+.header-text {
+  width: auto;
+  margin-left: 12px;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.profile-images {
+  border-radius: 100%;
+}
+
+.header-grid-container {
+  display: grid;
+  grid-template-columns: 342px 2fr 342px;
+  align-items: center;
+
+  // TODO: fix mobile layout
+
+  @media screen and (max-width: 1092px) {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    .header-text-container {
+      display: none;
+    }
+    .no-room-text-container {
+      display: block !important;
+      .header-text {
+        font-size: 18px;
+      }
+    }
+    .empty {
+      display: none;
+    }
+  }
+}

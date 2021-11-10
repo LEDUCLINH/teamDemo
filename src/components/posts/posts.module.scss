@@ -1,0 +1,92 @@
+@import '../../styles/theme';
+
+.posts {
+  --padding: 64px;
+
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  grid-template-columns: var(--side-width) auto;
+  align-items: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding) var(--padding);
+
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+  }
+}
+
+.posts__aside {
+  display: grid;
+
+  gap: 8px;
+
+  padding-bottom: var(--padding);
+}
+
+.posts__category {
+  border-radius: 4px;
+
+  transition: all 0.25s;
+}
+
+.posts__categoryActive {
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+}
+
+.posts__categoryButtonInner {
+  display: grid;
+
+  gap: 4px;
+  grid-template-columns: auto 24px;
+  align-items: center;
+
+  width: 100%;
+
+  > * {
+    text-align: left;
+  }
+}
+
+.posts__categorySelectedCount {
+  color: var(--color-grey);
+}
+
+.posts__categoryExandedList {
+  padding: 0 8px 4px;
+}
+
+.posts__content {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+}
+
+.posts__searchField {
+  input {
+    padding-right: 70px;
+  }
+}
+
+.posts__contentPostsGrid {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.25);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+  @media (max-width: $mobile-md) {
+    gap: calc(var(--padding) * 0.5);
+  }
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+  }
+}

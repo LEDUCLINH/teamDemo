@@ -1,0 +1,40 @@
+@import '../../../styles/theme';
+
+.categoryCard {
+  display: grid;
+
+  gap: 16px;
+
+  padding: 24px 8px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+
+  > * {
+    margin: auto;
+  }
+
+  @media (max-width: 396px) {
+    grid-auto-flow: column;
+    grid-template-columns: max-content auto;
+
+    padding: 16px;
+
+    text-align: left !important;
+  }
+}
+
+.categoryCard__icon {
+  @media (max-width: 396px) {
+    margin-right: 0;
+  }
+}
+.categoryCard__name {
+  @media (max-width: 396px) {
+    margin-left: 0;
+  }
+}

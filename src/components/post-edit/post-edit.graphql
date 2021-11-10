@@ -1,0 +1,57 @@
+mutation PostEdit__updatePost(
+  $post_id: bigint!
+  $sub_category_id: bigint!
+  $title: String!
+  $detail: String!
+  $post_attachments: [post_attachments_insert_input!]!
+  $post_prices: [post_prices_insert_input!]!
+  $years_of_experience: smallint
+  $post_attributes: [post_attributes_insert_input!]!
+) {
+  delete_post_attachments(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+  insert_post_attachments(objects: $post_attachments) {
+    affected_rows
+  }
+
+  delete_post_prices(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+  insert_post_prices(objects: $post_prices) {
+    affected_rows
+  }
+
+  delete_post_attributes(where: { post_id: { _eq: $post_id } }) {
+    affected_rows
+  }
+  insert_post_attributes(objects: $post_attributes) {
+    affected_rows
+  }
+
+  update_posts(
+    where: { id: { _eq: $post_id } }
+    _set: {
+      sub_category_id: $sub_category_id
+      title: $title
+      detail: $detail
+      years_of_experience: $years_of_experience
+    }
+  ) {
+    returning {
+      id
+    }
+  }
+}
+
+mutation PostEdit__GetStripeCustomerPortalLink(
+  $post_id: bigint!
+  $updated_post_is_local: Boolean!
+) {
+  checkout_or_manage_post_payment(
+    post_id: $post_id
+    updated_post_is_local: $updated_post_is_local
+  ) {
+    url
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../styles/theme';
+
+.sellerDetail {
+  --padding: 64px;
+
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  grid-template-columns: var(--side-width) auto;
+  align-items: flex-start;
+
+  margin: 0 auto;
+  padding: calc(var(--padding) * 0.5) var(--padding) var(--padding);
+
+  max-width: var(--max-width);
+  min-height: calc(100vh - 72px);
+
+  @media (max-width: $mobile-md) {
+    --padding: 32px;
+
+    gap: var(--padding);
+
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: $mobile-sm) {
+    --padding: 16px;
+
+    gap: calc(var(--padding) * 1.5);
+
+    padding: var(--padding);
+  }
+}
+
+.sellerDetail__content {
+  display: grid;
+
+  gap: calc(var(--padding) * 0.5);
+  align-items: flex-start;
+
+  max-width: 648px;
+
+  @media (max-width: $mobile-sm) {
+    gap: var(--padding);
+  }
+}
+
+.sellerDetail__contentTopRow {
+  display: grid;
+
+  gap: 8px;
+  grid-template-columns: auto max-content;
+  align-items: flex-start;
+
+  @media (max-width: $mobile-md) {
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+}

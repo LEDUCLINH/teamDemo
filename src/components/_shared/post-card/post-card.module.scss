@@ -1,0 +1,93 @@
+.postCard {
+  display: grid;
+
+  gap: 12px;
+
+  padding: var(--padding);
+
+  border-radius: 4px;
+
+  background-color: var(--color-background-paper);
+  box-shadow: var(--shade-small);
+}
+.postCard__mode-MINI {
+  --padding: 16px;
+}
+.postCard__mode-LARGE {
+  --padding: 24px;
+}
+.postCard__mode-OWNER {
+  --padding: 24px;
+}
+
+.postCard__content {
+  display: grid;
+
+  gap: 8px;
+}
+
+.postCard__topRow {
+  display: grid;
+
+  gap: 16px;
+  grid-auto-flow: column;
+  grid-template-columns: auto max-content max-content;
+  align-items: flex-start;
+}
+
+.postCard__contentDetail {
+  overflow: hidden;
+
+  max-height: 15rem;
+}
+
+.postCard__bottomRow {
+  display: grid;
+
+  gap: 16px;
+  grid-auto-flow: column;
+  grid-template-columns: 64px auto;
+  align-items: flex-start;
+}
+
+.postCard__avatar {
+  border-radius: 50%;
+
+  width: 64px;
+  height: 64px;
+
+  cursor: pointer;
+}
+
+.postCard__bottomRowInfo {
+  > * {
+    display: grid;
+
+    gap: 8px;
+    grid-auto-flow: column;
+    grid-template-columns: max-content auto;
+    align-items: center;
+
+    margin-right: auto;
+  }
+}
+
+.postCard__colorTextSecondary {
+  color: var(--color-grey) !important;
+}
+
+.postCard__colorText {
+  color: var(--color-text) !important;
+}
+
+.postCard__category {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  color: var(--color-grey);
+
+  > * {
+    margin: 0 0 auto 0 !important;
+  }
+}

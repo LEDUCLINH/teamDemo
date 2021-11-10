@@ -1,0 +1,41 @@
+.message-detail-container {
+  width: 100%;
+  // padding: 16px 32px;
+  background: #fff;
+
+  .message-detail {
+    display: grid;
+    grid-template-columns: 342px 2fr 342px;
+    height: calc(100vh - 62px - 72px);
+
+    // TODO: fix mobile layout
+
+    @media screen and (max-width: 1092px) {
+      grid-template-columns: 1fr 2fr;
+
+      .chat-profile-container {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: minmax(0, 72px) minmax(0, 1fr);
+    }
+  }
+}
+
+.no-room,
+.loading-container {
+  height: calc(100vh - 62px - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-left: 1px solid #e5dddd;
+  border-right: 1px solid #e5dddd;
+
+  p {
+    color: #888;
+    word-wrap: break-word;
+  }
+}
